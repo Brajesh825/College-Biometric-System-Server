@@ -9,6 +9,11 @@ router.post(
   reportController.generateReport
 );
 
+router.post(
+  "/api/v1/reports/",
+  reportController.generateReports
+);
+
 router.get(
   "/api/v1/reports/",
   reportController.getReport  
