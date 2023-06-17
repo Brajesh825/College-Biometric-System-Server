@@ -1,0 +1,135 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "AMS",
+    "dateExported": "2023-06-17T17:59:00.955Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "b39ee952-d27f-4eab-8968-a7956466ebd9",
+            "name": "Student",
+            "containerId": "",
+            "created": "2023-06-15T14:52:34.546Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "90501e49-a838-4a3e-b2fb-8fc14d20de42",
+            "name": "Attendence",
+            "containerId": "",
+            "created": "2023-06-15T14:52:42.401Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "f110a773-fe18-4776-95ef-7f60deb44e07",
+            "name": "Report",
+            "containerId": "",
+            "created": "2023-06-16T10:22:48.527Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "8d61f1fc-cea5-4d81-b345-75e946a52523",
+            "name": "Email",
+            "containerId": "",
+            "created": "2023-06-17T07:23:40.844Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "3f54af5e-9f35-46d0-83e7-c18e54bd178b",
+            "colId": "b218ed97-5557-472e-8404-4c083be1a3f2",
+            "containerId": "b39ee952-d27f-4eab-8968-a7956466ebd9",
+            "name": "uploadStudents",
+            "url": "http://localhost:4000/api/v1/uploadStudents",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-15T14:53:09.369Z",
+            "modified": "2023-06-15T14:53:48.780Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "student",
+                        "value": "/home/diku/Desktop/Brajesh/FreeLance/AMS(Attendence Management System)/csv/students.csv"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "5436bf28-3e92-40c9-8791-1688bc766b70",
+            "colId": "b218ed97-5557-472e-8404-4c083be1a3f2",
+            "containerId": "90501e49-a838-4a3e-b2fb-8fc14d20de42",
+            "name": "uploadAttendence",
+            "url": "http://localhost:4000/api/v1/uploadAttendence",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-06-15T15:21:07.437Z",
+            "modified": "2023-06-16T08:59:53.759Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "year",
+                        "value": "2023"
+                    },
+                    {
+                        "name": "month",
+                        "value": "January"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "attendence",
+                        "value": "/home/diku/Desktop/Brajesh/FreeLance/AMS(Attendence Management System)/csv/attendence.csv"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "88f294fa-5ecf-46da-9194-d321d0a51565",
+            "colId": "b218ed97-5557-472e-8404-4c083be1a3f2",
+            "containerId": "f110a773-fe18-4776-95ef-7f60deb44e07",
+            "name": "generate report",
+            "url": "http://localhost:4000/api/v1/report",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-06-16T10:22:59.688Z",
+            "modified": "2023-06-16T11:02:22.058Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"batch\": \"2019\",\n  \"branch\" : \"CSE\",\n  \"month\" : \"January\",\n  \"year\" : \"2023\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "ab163087-f068-461a-a852-05a9ab06389b",
+            "colId": "b218ed97-5557-472e-8404-4c083be1a3f2",
+            "containerId": "8d61f1fc-cea5-4d81-b345-75e946a52523",
+            "name": "sendEmail",
+            "url": "http://localhost:4000/api/v1/sendAttendence",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-06-17T07:23:47.365Z",
+            "modified": "2023-06-17T17:44:33.753Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "[\n  {\n    \"email\" : \"brajeshmishra825@gmail.com\",\n    \"attendencePercentage\" : \"30\"\n  },\n  {\n    \"email\" : \"swatipriya87899@gmail.com\",\n    \"attendencePercentage\" : \"60\"\n  }\n]",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
