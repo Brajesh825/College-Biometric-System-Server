@@ -21,7 +21,7 @@ class ReportController {
     if (!options) {
       return res.status(400).json({ status: "failure" });
     }
-    let reports= await reportService.generateReports(options);
+    let reports = await reportService.generateReports(options);
 
     res.status(200).json({ status: "success", reports });
   };
