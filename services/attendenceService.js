@@ -78,6 +78,8 @@ class AttendenceService {
         console.log("already exist");
       }
     }
+
+    return myDocs
   };
 
   filterDays = (record, month) => {
