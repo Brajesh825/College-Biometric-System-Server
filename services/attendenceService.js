@@ -54,6 +54,7 @@ class AttendenceService {
       element.registrationNumber = student.registrationNumber;
       element.rollNumber = student.rollNumber;
       element.batch = student.batch;
+      element.name = student.name;
       element.branch = student.branch;
       element.EmpCode = EmpCode;
 
@@ -74,19 +75,25 @@ class AttendenceService {
 
         await studentAttendence.save();
         myDocs.push(studentAttendence);
-        return myDocs;
       } else {
         let workingAtten = {};
         workingAtten.month = month;
         workingAtten.year = year;
         workingAtten.days = this.filterDays(element, month);
 
-        currAtten.attendence.push(workingAtten);
-        await currAtten.save();
-        myDocs.push(currAtten);
+        let alreadyExist = currAtten.attendence.filter(
+          (atten) => atten.year == year && atten.month == month
+        );
+
+        if (alreadyExist.lenth == 1) {
+          myDocs.push(currAtten);
+        } else {
+          currAtten.attendence.push(workingAtten);
+          await currAtten.save();
+          myDocs.push(currAtten);
+        }
       }
     }
-   console.log(myDocs);
     return myDocs;
   };
 

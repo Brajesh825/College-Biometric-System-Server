@@ -8,6 +8,9 @@ let smartphone = new Schema({
     EmpCode: {
         type: "String"
     },
+    nsme : {
+        type : "String"
+    },
     registrationNumber: {
         type: "Number",
         unique : true
