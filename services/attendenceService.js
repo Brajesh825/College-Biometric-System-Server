@@ -75,11 +75,18 @@ class AttendenceService {
         await studentAttendence.save();
         myDocs.push(studentAttendence);
       } else {
-        console.log("already exist");
+        let workingAtten = {};
+        workingAtten.month = month;
+        workingAtten.year = year;
+        workingAtten.days = this.filterDays(element, month);
+
+        currAtten.attendence.push(workingAtten)
+        await currAtten.save()
+        myDocs.push(currAtten);
       }
     }
 
-    return myDocs
+    return myDocs;
   };
 
   filterDays = (record, month) => {
