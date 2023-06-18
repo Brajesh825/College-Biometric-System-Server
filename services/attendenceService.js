@@ -80,8 +80,8 @@ class AttendenceService {
         workingAtten.year = year;
         workingAtten.days = this.filterDays(element, month);
 
-        currAtten.attendence.push(workingAtten)
-        await currAtten.save()
+        currAtten.attendence.push(workingAtten);
+        await currAtten.save();
         myDocs.push(currAtten);
       }
     }
