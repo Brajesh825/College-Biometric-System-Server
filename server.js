@@ -10,6 +10,13 @@ const studentRoutes = require("./route/studentRoute");
 const reportRoutes = require("./route/reportRoute");
 const mailRoutes = require("./route/mailRoute");
 
+//require cors
+const cors = require('cors');
+
+
+// Enable CORS
+app.use(cors());
+
 // middlewares
 app.use(bodyparser.json());
 app.use(

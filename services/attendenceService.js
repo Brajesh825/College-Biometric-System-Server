@@ -74,6 +74,7 @@ class AttendenceService {
 
         await studentAttendence.save();
         myDocs.push(studentAttendence);
+        return myDocs;
       } else {
         console.log("already exist");
       }
