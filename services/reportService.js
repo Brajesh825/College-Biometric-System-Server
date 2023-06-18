@@ -1,3 +1,5 @@
+const branches = require("../config/branchs");
+
 const Student = require("../model/student");
 const Attendence = require("../model/attendence");
 const Report = require("../model/report");
@@ -8,8 +10,8 @@ class ReportService {
   generateReport = async (options) => {
     let { batch, branch, month, year } = options;
 
-    let attendReport = await Report.find({ batch, branch, year, month });
-    if (attendReport.length != 0) {
+    let attendReport = await Report.findOne({ batch, branch, year, month });
+    if (attendReport) {
       console.log("Report Already Exist");
       return attendReport;
     }
@@ -69,10 +71,32 @@ class ReportService {
     myReport.reports = reports;
 
     let attendenceReport = new Report(myReport);
+    if (myReport.reports.length == 0) {
+      return attendenceReport;
+    }
     await attendenceReport.save();
 
     return attendenceReport;
   };
+
+  generateReports = async (options) => {
+    let reports = [];
+    let { batch, month, year } = options;
+
+    for (let i = 0; i < branches.length; i++) {
+      const branch = branches[i];
+      let report = await this.generateReport({
+        batch,
+        month,
+        year,
+        branch,
+      });
+      reports.push(report);
+    }
+
+    return reports;
+  };
+
   getReport = async (options) => {};
 }
 
