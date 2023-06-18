@@ -86,7 +86,7 @@ class AttendenceService {
         myDocs.push(currAtten);
       }
     }
-
+   console.log(myDocs);
     return myDocs;
   };
 
