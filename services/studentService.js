@@ -61,7 +61,7 @@ class StudentService {
     console.log(student);
 
     if (!student) {
-      return false
+      return false;
     }
 
     return student;
@@ -71,7 +71,7 @@ class StudentService {
     console.log("Here");
     let student = await Student.findOne({ EmpCode });
     if (!student) {
-      return false
+      return false;
     }
     return student;
   };
