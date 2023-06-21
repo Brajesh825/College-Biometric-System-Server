@@ -55,12 +55,21 @@ class StudentService {
     return { myStudents, errs };
   };
 
-  getDetails = async (EmpCode) => {
+  getAttendence = async (EmpCode) => {
     let student = await Attendence.findOne({ EmpCode });
     if (!student) {
       return false
     }
 
+    return student;
+  };
+
+  getDetails = async (EmpCode) => {
+    console.log("Here");
+    let student = await Student.findOne({ EmpCode });
+    if (!student) {
+      return false
+    }
     return student;
   };
 }
