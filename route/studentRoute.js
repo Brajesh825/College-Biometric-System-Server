@@ -13,8 +13,9 @@ router.post(
 
 router.get("/api/v1/student/:empCode", studentController.getDetails);
 
-router.get("/api/v1/student/attendence/:empCode", studentController.getAttendence);
-
-
+router.get(
+  "/api/v1/student/attendence/:empCode",
+  studentController.getAttendence
+);
 
 module.exports = router;

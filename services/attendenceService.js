@@ -65,7 +65,11 @@ class AttendenceService {
         let workingAtten = {};
         workingAtten.month = month;
         workingAtten.year = year;
-        workingAtten.days = this.filterDays(element, month);
+
+        let { days, absent, present } = this.filterDays(element, month);
+        workingAtten.days = days;
+        workingAtten.absentDays = absent;
+        workingAtten.presentDays = present;
 
         attendence.push(workingAtten);
 
@@ -79,7 +83,10 @@ class AttendenceService {
         let workingAtten = {};
         workingAtten.month = month;
         workingAtten.year = year;
-        workingAtten.days = this.filterDays(element, month);
+        let { days, absent, present } = this.filterDays(element, month);
+        workingAtten.days = days;
+        workingAtten.absentDays = absent;
+        workingAtten.presentDays = present;
 
         let alreadyExist = currAtten.attendence.filter(
           (atten) => atten.year == year && atten.month == month
@@ -99,11 +106,14 @@ class AttendenceService {
 
   filterDays = (record, month) => {
     let days = [];
+    let absentDays = 0;
+    let presentDays = 0;
     for (let i = 1; i <= 31; i++) {
       const element = record[i];
       if (element) {
         let day = i;
         if (element == "A") {
+          absentDays++;
           let isPresent = false;
           let isWorkingDay = true;
           days.push({ day, isPresent, isWorkingDay });
@@ -112,13 +122,14 @@ class AttendenceService {
           let isWorkingDay = false;
           days.push({ day, isPresent, isWorkingDay });
         } else {
+          presentDays++;
           let isPresent = true;
           let isWorkingDay = true;
           days.push({ day, isPresent, isWorkingDay });
         }
       }
     }
-    return days;
+    return { days, absent: absentDays, present: presentDays };
   };
 }
 

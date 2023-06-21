@@ -46,6 +46,14 @@ let smartphone = new Schema({
           },
         },
       ],
+      absentDays: {
+        type: "Number",
+        required : true
+      },
+      presentDays: {
+        type: "Number",
+        required : true
+      },
     },
   ],
 });

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "AMS",
-    "dateExported": "2023-06-21T18:31:37.894Z",
+    "dateExported": "2023-06-21T18:50:27.543Z",
     "version": "1.1",
     "folders": [
         {
@@ -68,7 +68,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-06-15T15:21:07.437Z",
-            "modified": "2023-06-16T08:59:53.759Z",
+            "modified": "2023-06-21T18:49:05.700Z",
             "headers": [],
             "params": [],
             "body": {
@@ -81,7 +81,7 @@
                     },
                     {
                         "name": "month",
-                        "value": "January"
+                        "value": "June"
                     }
                 ],
                 "files": [

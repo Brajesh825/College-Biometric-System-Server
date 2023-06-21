@@ -57,6 +57,9 @@ class StudentService {
 
   getAttendence = async (EmpCode) => {
     let student = await Attendence.findOne({ EmpCode });
+
+    console.log(student);
+
     if (!student) {
       return false
     }
