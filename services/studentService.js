@@ -2,6 +2,7 @@ const fs = require("fs");
 const csv = require("fast-csv");
 
 const Student = require("../model/student");
+const Attendence = require("../model/attendence");
 
 class StudentService {
   constructor() {}
@@ -52,6 +53,15 @@ class StudentService {
     }
 
     return { myStudents, errs };
+  };
+
+  getDetails = async (EmpCode) => {
+    let student = await Attendence.findOne({ EmpCode });
+    if (!student) {
+      return false
+    }
+
+    return student;
   };
 }
 

@@ -11,4 +11,6 @@ router.post(
   studentController.uploadCSV
 );
 
+router.get("/api/v1/student/:empCode", studentController.getDetails);
+
 module.exports = router;
