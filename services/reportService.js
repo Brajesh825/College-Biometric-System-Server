@@ -3,7 +3,14 @@ const branches = require("../config/branchs");
 const Student = require("../model/student");
 const Attendence = require("../model/attendence");
 const Report = require("../model/report");
+
+//Service
+const MailService = require("./mailService")
+const mailService = new MailService()
+
 const { report } = require("../route/reportRoute");
+
+
 
 class ReportService {
   constructor() {}
@@ -42,9 +49,14 @@ class ReportService {
       report.email = student.email;
 
       // attendence percenatage check
+
       let currmonthAttendence = attendence.attendence.filter(
         (el) => el.month == month && el.year == year
       );
+
+      if (currmonthAttendence.length == 0) {
+        return;
+      }
 
       let workingAttend = currmonthAttendence[0];
 
@@ -64,6 +76,16 @@ class ReportService {
       let attendencePercent = (daysPresent / (daysPresent + daysAbsent)) * 100;
       report.attendencePercent = Math.floor(attendencePercent);
       report.isEligible = attendencePercent >= 50;
+
+      // Send Mail
+      let from = "AMS";
+      let to = report.email;
+      let attendencePercentage = report.attendencePercent;
+      let text = `Your Attendence percent is ${attendencePercentage}`;
+      let subject = `Attendence Report For  ${workingAttend.month}  ${workingAttend.year}`;
+      let html = `Your Attendence percent is ${attendencePercentage}`;
+      let mail = await mailService.composeMail(from, to, subject, text, html);
+      await mailService.sendMail(mail);
 
       reports.push(report);
     }
