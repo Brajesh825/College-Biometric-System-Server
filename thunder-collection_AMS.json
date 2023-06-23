@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "AMS",
-    "dateExported": "2023-06-21T18:50:27.543Z",
+    "dateExported": "2023-06-23T08:58:31.167Z",
     "version": "1.1",
     "folders": [
         {
@@ -68,7 +68,7 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-06-15T15:21:07.437Z",
-            "modified": "2023-06-21T18:49:05.700Z",
+            "modified": "2023-06-22T13:36:38.269Z",
             "headers": [],
             "params": [],
             "body": {
@@ -81,7 +81,7 @@
                     },
                     {
                         "name": "month",
-                        "value": "June"
+                        "value": "February"
                     }
                 ],
                 "files": [
@@ -102,7 +102,7 @@
             "method": "POST",
             "sortNum": 20000,
             "created": "2023-06-16T10:22:59.688Z",
-            "modified": "2023-06-16T11:02:22.058Z",
+            "modified": "2023-06-23T08:53:46.751Z",
             "headers": [],
             "params": [],
             "body": {
@@ -174,6 +174,20 @@
             "sortNum": 50000,
             "created": "2023-06-21T18:23:58.067Z",
             "modified": "2023-06-21T18:23:58.067Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4ac1b668-14c7-421e-bef4-6f15c2b0e8b7",
+            "colId": "b218ed97-5557-472e-8404-4c083be1a3f2",
+            "containerId": "b39ee952-d27f-4eab-8968-a7956466ebd9",
+            "name": "get all students",
+            "url": "http://localhost:4000/api/v1/students/",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-06-23T08:57:28.689Z",
+            "modified": "2023-06-23T08:57:50.476Z",
             "headers": [],
             "params": [],
             "tests": []

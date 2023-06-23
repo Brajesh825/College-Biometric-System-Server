@@ -5,12 +5,10 @@ const Attendence = require("../model/attendence");
 const Report = require("../model/report");
 
 //Service
-const MailService = require("./mailService")
-const mailService = new MailService()
+const MailService = require("./mailService");
+const mailService = new MailService();
 
 const { report } = require("../route/reportRoute");
-
-
 
 class ReportService {
   constructor() {}

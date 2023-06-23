@@ -6,10 +6,12 @@ const Schema = mongoose.Schema;
 
 let student = new Schema({
     EmpCode: {
-        type: "String"
+        type: "String",
+        required : true
     },
     name: {
-        type : "String"
+        type : "String",
+        required : true
     },
     registrationNumber: {
         type: "Number",
