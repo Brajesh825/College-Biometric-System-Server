@@ -11,6 +11,11 @@ router.post(
   studentController.uploadCSV
 );
 
+router.get(
+  "/api/v1/students",
+  studentController.getAllStudentDetails
+);
+
 router.get("/api/v1/student/:empCode", studentController.getDetails);
 
 router.get(

@@ -75,6 +75,14 @@ class StudentService {
     }
     return student;
   };
+
+  getAllStudents = async()=>{
+    let allStudentsData = await Student.find();
+    if (!allStudentsData) {
+      return false;
+    }
+    return allStudentsData;
+  }
 }
 
 module.exports = StudentService;

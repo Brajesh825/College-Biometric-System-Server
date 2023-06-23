@@ -39,6 +39,18 @@ class StudentController {
 
     return res.status(200).json({ message: "successfully found", student });
   };
+
+  getAllStudentDetails = async (req, res) => {
+
+    let allStudentsData = await studentService.getAllStudents();
+
+    if (!allStudentsData) {
+      return res.status(404).json({ message: "Students Not Found" });
+    }
+
+    return res.status(200).json({ message: "Students Found", allStudentsData });
+  };
+
 }
 
 module.exports = StudentController;
