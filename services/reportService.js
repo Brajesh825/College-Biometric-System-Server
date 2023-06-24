@@ -83,7 +83,7 @@ class ReportService {
       let subject = `Attendence Report For  ${workingAttend.month}  ${workingAttend.year}`;
       let html = `Your Attendence percent is ${attendencePercentage}`;
       let mail = await mailService.composeMail(from, to, subject, text, html);
-      await mailService.sendMail(mail);
+      mailService.sendMail(mail);
 
       reports.push(report);
     }

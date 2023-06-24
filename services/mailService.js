@@ -17,10 +17,15 @@ class MailService {
   };
 
   sendMail = async (options) => {
-    console.log(options);
-    let res = await mail(options);
-    console.log(res);
-    return res;
+    try {
+      console.log(options);
+      let res = await mail(options);
+      console.log(res);
+      return res;
+    } catch (error) {
+      return
+    }
+
   };
 }
 
